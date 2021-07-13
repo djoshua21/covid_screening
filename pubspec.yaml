@@ -16,3 +16,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  fonts:
+    - family: CenturyGothic
+      fonts:
+        - asset: assets/fonts/century-gothic.ttf
