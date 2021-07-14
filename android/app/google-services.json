@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "277724354902",
+    "project_id": "health-check-app-3e7f3",
+    "storage_bucket": "health-check-app-3e7f3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:277724354902:android:d34d35b5e275c3752edef7",
+        "android_client_info": {
+          "package_name": "com.example.haefele_health_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "277724354902-n1pb7ae9k0afcas9220j65u018s8kcmb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvo0wbgANELisSPiUos0TM0iteTSZc5ZE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "277724354902-n1pb7ae9k0afcas9220j65u018s8kcmb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
