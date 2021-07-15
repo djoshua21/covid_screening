@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:haefele_health_app/src/core/constants/constants.dart';
 import 'package:haefele_health_app/src/core/view_models/login_view_model.dart';
 import 'package:stacked/stacked.dart';
 import 'package:flutter/services.dart';
@@ -6,6 +7,17 @@ import 'package:flutter/services.dart';
 class LoginView extends StatelessWidget {
   final GlobalKey<FormState> _form = GlobalKey();
   final _authData = {'email': '', 'password': ''};
+
+  void _login(BuildContext context, LoginViewModel model) {
+    if (_form.currentState.validate()) {
+      _form.currentState.save();
+      model.handleLogin(
+        context,
+        _authData['email'],
+        _authData['password'],
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,19 +70,7 @@ class LoginView extends StatelessWidget {
                       ),
                       padding: EdgeInsets.only(left: 10, right: 10, bottom: 4),
                       child: TextFormField(
-                        onFieldSubmitted: (_) {
-                          //Todo: Suggest i create a method here to avoid code duplication.
-                          if (!_form.currentState.validate()) {
-                            return;
-                          }
-                          _form.currentState.save();
-
-                          model.handleLogin(
-                            context,
-                            _authData['email'],
-                            _authData['password'],
-                          );
-                        },
+                        onFieldSubmitted: (_) => _login(context, model),
                         textInputAction: TextInputAction.done,
                         decoration: InputDecoration(labelText: 'Password'),
                         obscureText: true,
@@ -92,20 +92,21 @@ class LoginView extends StatelessWidget {
                     model.isBusy
                         ? CircularProgressIndicator()
                         : ElevatedButton(
-                            onPressed: () {
-                              if (_form.currentState.validate()) {
-                                _form.currentState.save();
-                                model.handleLogin(
-                                  context,
-                                  _authData['email'],
-                                  _authData['password'],
-                                );
-                              }
-                            },
+                            onPressed: () => _login(context, model),
                             child: Text('Login'),
                           ),
                     SizedBox(height: 15),
-                    TextButton(onPressed: () {}, child: Text('Forgot password'))
+                    TextButton(
+                        onPressed: () {
+                          // Navigator.of(context)
+                          //     .pushReplacementNamed(RoutePaths.forgot);
+                        }, child: Text('Forgot password')),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.of(context)
+                              .pushReplacementNamed(RoutePaths.signUp);
+                        },
+                        child: Text('Switch to SignUp')),
                   ],
                 ),
               ),

@@ -11,4 +11,21 @@ class AuthService with ChangeNotifier {
       throw error;
     }
   }
+
+  Future<String> signUp({
+    String email,
+    String password,
+  }) async {
+    final FirebaseAuth auth = FirebaseAuth.instance;
+
+    try {
+      UserCredential responseData = await auth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return responseData.user.uid;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
