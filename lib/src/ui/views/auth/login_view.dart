@@ -98,8 +98,8 @@ class LoginView extends StatelessWidget {
                     SizedBox(height: 15),
                     TextButton(
                         onPressed: () {
-                          // Navigator.of(context)
-                          //     .pushReplacementNamed(RoutePaths.forgot);
+                          Navigator.of(context)
+                              .pushReplacementNamed(RoutePaths.forgot);
                         }, child: Text('Forgot password')),
                     TextButton(
                         onPressed: () {
