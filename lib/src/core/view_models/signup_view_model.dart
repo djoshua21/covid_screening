@@ -13,9 +13,9 @@ class SignUpViewModel extends BaseViewModel {
   final AuthService _authService = locator<AuthService>();
   final UserService _userService = locator<UserService>();
   Offices _currentOffice;
-  File _image;
+  File image;
 
-  File get image => _image;
+
 
   Offices get currentOffice => _currentOffice;
 
@@ -71,12 +71,12 @@ class SignUpViewModel extends BaseViewModel {
         office: _office,
       );
 
-      if (_image != null) {
-        await _userService.uploadImage(_image, uid);
+      if (image != null) {
+        await _userService.uploadImage(image, uid);
       }
       Navigator.of(ctx).pushReplacementNamed(RoutePaths.login);
     } catch (error) {
-      var errorMessage = 'Authentication failed';
+      var errorMessage = 'Sign Up failed';
       if (error.code == 'weak-password') {
         errorMessage = 'The password provided is too weak.';
       } else if (error.code == 'email-already-in-use') {
@@ -96,7 +96,7 @@ class SignUpViewModel extends BaseViewModel {
     if (imageFile == null) {
       return null;
     }
-    _image = File(imageFile.path);
+    image = File(imageFile.path);
     notifyListeners();
   }
 }

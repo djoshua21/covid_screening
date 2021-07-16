@@ -11,9 +11,8 @@ class UserService with ChangeNotifier {
       await firebaseStorage
           .ref('$uid/uploads/profile_pic.png')
           .putFile(imageFile);
-      print('success');
     } catch (error) {
-      print('failed');
+      throw error;
     }
   }
 
@@ -23,13 +22,10 @@ class UserService with ChangeNotifier {
     String cellphone,
     String office,
   }) async {
-    CollectionReference users = FirebaseFirestore.instance.collection('users');
-
-    await users.doc(uid).set({
+    await FirebaseFirestore.instance.collection('users').doc(uid).set({
       'name': name,
       'cellphone': cellphone,
       'office': office,
     });
-    //print(response.toString());
   }
 }
