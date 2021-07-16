@@ -9,7 +9,6 @@ class LoginViewModel extends BaseViewModel {
   final AuthService _authService = locator<AuthService>();
 
   void _showErrorDialog(BuildContext ctx, String message) {
-    //Todo: Ask him what should be done regarding the need for the build context
     showDialog(
       context: ctx,
       builder: (ctx) => AlertDialog(
