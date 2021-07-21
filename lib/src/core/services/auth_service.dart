@@ -2,11 +2,27 @@ import 'package:flutter/foundation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService with ChangeNotifier {
-  Future<void> login(String email, String password) async {
-    final FirebaseAuth auth = FirebaseAuth.instance;
+  static FirebaseAuth _auth = FirebaseAuth.instance;
 
+  Future<void> login(String email, String password) async {
     try {
-      await auth.signInWithEmailAndPassword(email: email, password: password);
+      await _auth.signInWithEmailAndPassword(email: email, password: password);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  Future<void> resetPassword(String email) async {
+    try {
+      await _auth.sendPasswordResetEmail(email: email);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  Future<void> logout() async {
+    try {
+      await _auth.signOut();
     } catch (error) {
       throw error;
     }
@@ -26,10 +42,8 @@ class AuthService with ChangeNotifier {
     String email,
     String password,
   }) async {
-    final FirebaseAuth auth = FirebaseAuth.instance;
-
     try {
-      UserCredential responseData = await auth.createUserWithEmailAndPassword(
+      UserCredential responseData = await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -38,4 +52,6 @@ class AuthService with ChangeNotifier {
       throw error;
     }
   }
+
+  User get currentUser => _auth.currentUser;
 }
