@@ -5,6 +5,7 @@ export 'auth/forgot_password_view.dart';
 
 //dashboard
 export 'dashboard/entry_history_view.dart';
+export 'dashboard/dashboard_view.dart';
 
 //splash_screen
 export 'splash_screen/splash_screen_view.dart';

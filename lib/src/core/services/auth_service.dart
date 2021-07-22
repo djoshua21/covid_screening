@@ -19,8 +19,8 @@ class AuthService with ChangeNotifier {
       throw error;
     }
   }
-
-  Future<void> logout() async {
+  
+Future<void> logout() async {
     try {
       await _auth.signOut();
     } catch (error) {
