@@ -19,20 +19,10 @@ class AuthService with ChangeNotifier {
       throw error;
     }
   }
-
-  Future<void> logout() async {
+  
+Future<void> logout() async {
     try {
       await _auth.signOut();
-    } catch (error) {
-      throw error;
-    }
-  }
-
-  Future<void> resetPassword(String email) async {
-    final FirebaseAuth auth = FirebaseAuth.instance;
-
-    try {
-      await auth.sendPasswordResetEmail(email: email);
     } catch (error) {
       throw error;
     }

@@ -1,22 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:haefele_health_app/src/core/constants/constants.dart';
-import 'package:haefele_health_app/src/core/services/auth_service.dart';
-import 'package:haefele_health_app/src/locator.dart';
+import 'package:haefele_health_app/src/core/view_models/dashboard_view_model.dart';
+import 'package:stacked/stacked.dart';
 
-class DashBoardView extends StatelessWidget {
-  final AuthService _authService = locator<AuthService>();
-
+class DashboardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: ElevatedButton(
-          child: Text('Logout'),
-          // This is only here for testing purposes.
-          onPressed: () {
-            _authService.logout();
-            Navigator.of(context).pushReplacementNamed(RoutePaths.login);
+    return ViewModelBuilder<DashboardViewModel>.reactive(
+      viewModelBuilder: () => DashboardViewModel(),
+      builder: (context, model, child) => Scaffold(
+        body: model.pages[model.currentPage],
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: model.currentPage,
+          onTap: (index) {
+            model.setPage(index);
           },
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.list),
+              label: 'Entries',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profile',
+            ),
+          ],
         ),
       ),
     );
