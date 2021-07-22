@@ -15,8 +15,6 @@ class SignUpViewModel extends BaseViewModel {
   Offices _currentOffice;
   File image;
 
-
-
   Offices get currentOffice => _currentOffice;
 
   void _showErrorDialog(BuildContext ctx, String message) {
@@ -60,6 +58,7 @@ class SignUpViewModel extends BaseViewModel {
     String email,
     String password,
     String cellphone,
+    String code,
   }) async {
     setBusy(true);
     try {
@@ -69,6 +68,7 @@ class SignUpViewModel extends BaseViewModel {
         name: name,
         cellphone: cellphone,
         office: _office,
+        code: code,
       );
 
       if (image != null) {

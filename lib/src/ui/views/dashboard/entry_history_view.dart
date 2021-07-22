@@ -11,47 +11,49 @@ class EntryHistoryView extends StatelessWidget {
       onModelReady: (model) => model.getEntries(),
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(title: Center(child: Text('Entries'))),
-        body: model.entryList.length == 0
+        body: model.entryList == null
             ? Center(child: CircularProgressIndicator())
-            : ListView.builder(
-                itemCount: model.entryList.length,
-                itemBuilder: (ctx, i) => Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Container(
-                    margin: EdgeInsets.symmetric(vertical: 5),
-                    decoration: BoxDecoration(border: Border.all(width: 1)),
-                    child: ListTile(
-                      onTap: () {
-                        //For Testing
-                        print(model.entryList[i].location);
-                      },
-                      title: Text(
-                        "Haefele ${model.entryList[i].location} Office",
-                        style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.bold),
-                      ),
-                      leading: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5),
-                        child: Text(
-                          DateFormat('d/M').format(
-                            model.entryList[i].dateTime,
+            : model.entryList.length == 0
+                ? Center(child: Text('No Entry History'))
+                : ListView.builder(
+                    itemCount: model.entryList.length,
+                    itemBuilder: (ctx, i) => Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: Container(
+                        margin: EdgeInsets.symmetric(vertical: 5),
+                        decoration: BoxDecoration(border: Border.all(width: 1)),
+                        child: ListTile(
+                          onTap: () {
+                            //For Testing
+                            print(model.entryList[i].location);
+                          },
+                          title: Text(
+                            "Haefele ${model.entryList[i].location} Office",
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.bold),
                           ),
-                          style: TextStyle(fontSize: 15),
-                        ),
-                      ),
-                      trailing: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 5),
-                        child: Text(
-                          DateFormat.Hm().format(
-                            model.entryList[i].dateTime,
+                          leading: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 5),
+                            child: Text(
+                              DateFormat('d/M').format(
+                                model.entryList[i].dateTime,
+                              ),
+                              style: TextStyle(fontSize: 15),
+                            ),
                           ),
-                          style: TextStyle(fontSize: 15),
+                          trailing: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 5),
+                            child: Text(
+                              DateFormat.Hm().format(
+                                model.entryList[i].dateTime,
+                              ),
+                              style: TextStyle(fontSize: 15),
+                            ),
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ),
       ),
     );
   }

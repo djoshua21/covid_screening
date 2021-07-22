@@ -34,6 +34,7 @@ class SignUpView extends StatelessWidget {
         email: _authData['email'],
         password: _authData['password'],
         cellphone: _authData['cellphone'],
+        code: _authData['code'],
       );
     }
   }
@@ -267,7 +268,7 @@ class SignUpView extends StatelessWidget {
                               return null;
                             },
                             onSaved: (value) {
-                              _authData['name'] = value;
+                              _authData['code'] = value;
                             },
                           ),
                         ),
