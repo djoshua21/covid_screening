@@ -15,8 +15,6 @@ class SignUpViewModel extends BaseViewModel {
   Offices _currentOffice;
   File image;
 
-
-
   Offices get currentOffice => _currentOffice;
 
   void _showErrorDialog(BuildContext ctx, String message) {
@@ -60,6 +58,7 @@ class SignUpViewModel extends BaseViewModel {
     String email,
     String password,
     String cellphone,
+    String code,
   }) async {
     setBusy(true);
     try {
@@ -69,7 +68,9 @@ class SignUpViewModel extends BaseViewModel {
         name: name,
         cellphone: cellphone,
         office: _office,
+        code: code,
       );
+      print('test');
 
       if (image != null) {
         await _userService.uploadImage(image, uid);
@@ -89,7 +90,7 @@ class SignUpViewModel extends BaseViewModel {
 
   Future<void> takePicture(ImageSource source) async {
     final picker = ImagePicker();
-    final imageFile = await picker.getImage(
+    final imageFile = await picker.pickImage(
       source: source,
       maxWidth: 600,
     );

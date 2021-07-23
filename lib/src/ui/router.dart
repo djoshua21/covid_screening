@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:haefele_health_app/src/core/constants/constants.dart';
-import 'package:haefele_health_app/src/ui/views/dashboard/dashboard_view.dart';
+import 'package:haefele_health_app/src/ui/views/entries/add_entry_view.dart';
 import 'package:haefele_health_app/src/ui/views/views.dart';
 
 class AppRouter {
@@ -16,6 +16,8 @@ class AppRouter {
       case RoutePaths.dashboard:
         return MaterialPageRoute<DashboardView>(
             builder: (_) => DashboardView());
+      case RoutePaths.addEntry:
+        return MaterialPageRoute<AddEntryView>(builder: (_) => AddEntryView());
       default:
         return null;
     }
