@@ -8,7 +8,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class EntryHistoryViewModel extends BaseViewModel {
   final EntryService _entryService = locator<EntryService>();
   final AuthService _authService = locator<AuthService>();
-  final List<EntryModel> entryList = [];
+  List<EntryModel> entryList;
 
   Future<void> getEntries() async {
     final String uid = _authService.currentUser.uid;
@@ -21,6 +21,11 @@ class EntryHistoryViewModel extends BaseViewModel {
         dateTime: item['dateTime'].toDate(),
       ));
     });
+
+    if (entryList == null) {
+      entryList = [];
+    }
+
     notifyListeners();
   }
 }
