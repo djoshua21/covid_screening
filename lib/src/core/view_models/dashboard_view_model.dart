@@ -1,4 +1,4 @@
-import 'package:haefele_health_app/src/ui/views/dashboard/entry_history_view.dart';
+import 'package:haefele_health_app/src/ui/views/entries/entry_history_view.dart';
 import 'package:haefele_health_app/src/ui/views/dashboard/profile_view.dart';
 import 'package:stacked/stacked.dart';
 

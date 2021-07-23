@@ -17,7 +17,6 @@ class ProfileViewModel extends BaseViewModel {
     final userData = await _userService.getUserData(uid);
     if (userData.data().containsKey('name')) {
       name = userData.data()['name'];
-      print(userData.data()['name']);
     }
     imageLink = await _userService.getImageURL(uid);
     notifyListeners();

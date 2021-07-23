@@ -5,10 +5,9 @@ class EntryService with ChangeNotifier {
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   Future<QuerySnapshot<Map<String, dynamic>>> getEntries(String uid) async {
-    return _firestore
+    return await _firestore
         .collection('entries')
-        .doc(uid)
-        .collection('userEntries')
+        .where('uid', isEqualTo: uid)
         .orderBy('dateTime', descending: true)
         .get();
   }
@@ -16,11 +15,14 @@ class EntryService with ChangeNotifier {
   Future<void> saveEntry({
     String uid,
     String office,
-    DateTime dateTime,
+    double temp,
+    Timestamp dateTime,
   }) async {
-    await _firestore.collection('entries').doc(uid).set({
-      'office': office,
-      'timeStamp': dateTime,
+    _firestore.collection('entries').add({
+      'uid': uid,
+      'location': office,
+      'temperature': temp,
+      'dateTime': dateTime,
     });
   }
 }

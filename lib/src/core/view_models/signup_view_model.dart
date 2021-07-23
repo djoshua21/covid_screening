@@ -70,6 +70,7 @@ class SignUpViewModel extends BaseViewModel {
         office: _office,
         code: code,
       );
+      print('test');
 
       if (image != null) {
         await _userService.uploadImage(image, uid);
@@ -89,7 +90,7 @@ class SignUpViewModel extends BaseViewModel {
 
   Future<void> takePicture(ImageSource source) async {
     final picker = ImagePicker();
-    final imageFile = await picker.getImage(
+    final imageFile = await picker.pickImage(
       source: source,
       maxWidth: 600,
     );

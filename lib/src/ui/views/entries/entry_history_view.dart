@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:haefele_health_app/src/core/constants/route_constants.dart';
 import 'package:haefele_health_app/src/core/view_models/entry_history_view_model.dart';
 import 'package:stacked/stacked.dart';
 import 'package:intl/intl.dart';
@@ -11,6 +12,12 @@ class EntryHistoryView extends StatelessWidget {
       onModelReady: (model) => model.getEntries(),
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(title: Center(child: Text('Entries'))),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () {
+            Navigator.of(context).pushNamed(RoutePaths.addEntry);
+          },
+        ),
         body: model.entryList == null
             ? Center(child: CircularProgressIndicator())
             : model.entryList.length == 0
