@@ -1,21 +1,22 @@
-name: haefele_health_app
+name: covid_screening_app
 description: A new Flutter project.
 publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.10.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  firebase_auth: ^2.0.0
-  firebase_core: ^1.3.0
-  stacked: ^1.9.1
-  get_it: ^5.0.6
-  cloud_firestore: ^2.3.0
-  firebase_storage: ^9.0.0
-  image_picker: ^0.8.1+4
+  async: ^2.6.1
+  firebase_auth: ^3.0.1
+  firebase_core: ^1.4.0
+  stacked: ^2.2.3
+  get_it: ^7.2.0
+  cloud_firestore: ^2.4.0
+  firebase_storage: ^10.0.1
+  image_picker: ^0.8.2
   path_provider: ^2.0.2
   intl: ^0.17.0
 

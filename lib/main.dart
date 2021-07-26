@@ -1,6 +1,6 @@
+import 'package:covid_screening_app/src/app.dart';
+import 'package:covid_screening_app/src/locator.dart';
 import 'package:flutter/material.dart';
-import 'package:haefele_health_app/src/app.dart';
-import 'package:haefele_health_app/src/locator.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 

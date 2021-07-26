@@ -1,5 +1,5 @@
-import 'package:haefele_health_app/src/ui/views/entries/entry_history_view.dart';
-import 'package:haefele_health_app/src/ui/views/dashboard/profile_view.dart';
+import 'package:covid_screening_app/src/ui/views/entries/entry_history_view.dart';
+import 'package:covid_screening_app/src/ui/views/dashboard/profile_view.dart';
 import 'package:stacked/stacked.dart';
 
 class DashboardViewModel extends BaseViewModel {

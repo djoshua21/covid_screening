@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:haefele_health_app/src/core/view_models/splash_screen_view_model.dart';
+import 'package:covid_screening_app/src/core/view_models/splash_screen_view_model.dart';
 import 'package:stacked/stacked.dart';
 
 class SplashScreenView extends StatelessWidget {

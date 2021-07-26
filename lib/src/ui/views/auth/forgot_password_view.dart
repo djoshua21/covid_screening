@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:haefele_health_app/src/core/constants/constants.dart';
-import 'package:haefele_health_app/src/core/view_models/forgot_password_view_model.dart';
+import 'package:covid_screening_app/src/core/constants/constants.dart';
+import 'package:covid_screening_app/src/core/view_models/forgot_password_view_model.dart';
 import 'package:stacked/stacked.dart';
 
 class ForgotPasswordView extends StatelessWidget {

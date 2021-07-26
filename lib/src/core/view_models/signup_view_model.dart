@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:haefele_health_app/src/core/constants/office_constants.dart';
-import 'package:haefele_health_app/src/core/services/auth_service.dart';
-import 'package:haefele_health_app/src/core/services/user_service.dart';
-import 'package:haefele_health_app/src/locator.dart';
+import 'package:covid_screening_app/src/core/constants/office_constants.dart';
+import 'package:covid_screening_app/src/core/services/auth_service.dart';
+import 'package:covid_screening_app/src/core/services/user_service.dart';
+import 'package:covid_screening_app/src/locator.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:stacked/stacked.dart';
 import 'dart:io';

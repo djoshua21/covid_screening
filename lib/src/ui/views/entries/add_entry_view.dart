@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:haefele_health_app/src/core/constants/office_constants.dart';
-import 'package:haefele_health_app/src/core/view_models/add_entry_view_model.dart';
+import 'package:covid_screening_app/src/core/constants/office_constants.dart';
+import 'package:covid_screening_app/src/core/view_models/add_entry_view_model.dart';
 import 'package:stacked/stacked.dart';
 
 class AddEntryView extends StatelessWidget {

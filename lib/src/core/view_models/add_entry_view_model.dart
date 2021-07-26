@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:haefele_health_app/src/core/constants/office_constants.dart';
-import 'package:haefele_health_app/src/core/services/auth_service.dart';
-import 'package:haefele_health_app/src/core/services/entry_service.dart';
-import 'package:haefele_health_app/src/locator.dart';
+import 'package:covid_screening_app/src/core/constants/office_constants.dart';
+import 'package:covid_screening_app/src/core/services/auth_service.dart';
+import 'package:covid_screening_app/src/core/services/entry_service.dart';
+import 'package:covid_screening_app/src/locator.dart';
 import 'package:stacked/stacked.dart';
 import 'package:flutter/material.dart';
 

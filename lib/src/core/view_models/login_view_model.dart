@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:haefele_health_app/src/core/services/auth_service.dart';
-import 'package:haefele_health_app/src/locator.dart';
+import 'package:covid_screening_app/src/core/services/auth_service.dart';
+import 'package:covid_screening_app/src/locator.dart';
 import 'package:stacked/stacked.dart';
 
 import '../constants/constants.dart';
