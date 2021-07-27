@@ -59,15 +59,15 @@ class AddEntryViewModel extends BaseViewModel {
       final temp = double.parse(temperature.replaceAll(',', '.'));
 
       if (temp > 37) {
-        throw ErrorDescription('Temperature is too high.');
+        throw 'Temperature is too high.';
       }
 
       if (!chk1 || !chk2 || !chk3) {
-        throw ErrorDescription('One or more boxes have not been checked.');
+        throw 'One or more boxes have not been checked.';
       }
 
       if (_currentOffice == null) {
-        throw ErrorDescription('Please choose an office');
+        throw 'Please choose an office';
       }
 
       await _entryService.saveEntry(
@@ -79,7 +79,7 @@ class AddEntryViewModel extends BaseViewModel {
       Navigator.of(ctx).pop();
     } catch (error) {
       print(error);
-      _showErrorDialog(ctx, error.toString());
+      _showErrorDialog(ctx, error);
     }
   }
 }
